@@ -30,7 +30,7 @@ describe Fizzbuzzer do
 
   end
 
-  describe "#call_with" do
+  describe "#call_with(n)" do
     describe "3で割り切れる場合" do
       it "fizz!を実行する" do
         expect( model ).to     receive(:fizz!)
@@ -58,6 +58,16 @@ describe Fizzbuzzer do
         expect( model ).not_to receive(:fizz!)
 
         model.call_with(15)
+      end
+    end
+
+    describe "3, 5, 15で割り切れない場合" do
+      it "nを引数に、putsを実行する" do
+        expect( model ).to receive(:puts).with(1)
+        model.call_with(1)
+
+        expect( model ).to receive(:puts).with(7)
+        model.call_with(7)
       end
     end
   end
