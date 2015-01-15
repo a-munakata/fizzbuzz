@@ -33,9 +33,9 @@ describe Fizzbuzzer do
     describe "3で割り切れる場合" do
       it "puts_fizzを実行する" do
         expect( model ).to     receive(:puts_fizz)
-
         expect( model ).not_to receive(:puts_buzz)
         expect( model ).not_to receive(:puts_fizzbuzz)
+        expect( model ).not_to receive(:puts_n)
 
         model.call_with(3)
       end
@@ -46,6 +46,7 @@ describe Fizzbuzzer do
         expect( model ).to     receive(:puts_buzz)
         expect( model ).not_to receive(:puts_fizz)
         expect( model ).not_to receive(:fizzputs_buzz)
+        expect( model ).not_to receive(:puts_n)
 
         model.call_with(5)
       end
@@ -56,6 +57,7 @@ describe Fizzbuzzer do
         expect( model ).to     receive(:puts_fizzbuzz)
         expect( model ).not_to receive(:puts_buzz)
         expect( model ).not_to receive(:puts_fizz)
+        expect( model ).not_to receive(:puts_n)
 
         model.call_with(15)
       end
@@ -63,12 +65,18 @@ describe Fizzbuzzer do
 
     describe "3, 5, 15で割り切れない場合" do
       it "nを引数に、putsを実行する" do
-        expect( model ).to receive(:puts).with(1)
+        expect( model ).to receive(:puts_n).with(1)
         model.call_with(1)
 
-        expect( model ).to receive(:puts).with(7)
+        expect( model ).to receive(:puts_n).with(7)
         model.call_with(7)
       end
+    end
+  end
+
+  describe "#puts_n(n)" do
+    it "引数nを標準出力する" do
+      expect{ model.puts_n(1) }.to output("1\n").to_stdout
     end
   end
 

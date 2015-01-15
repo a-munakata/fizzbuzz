@@ -14,6 +14,10 @@ class Fizzbuzzer
       return puts_fizz     if n % 3 == 0
       return puts_buzz     if n % 5 == 0
 
+      puts_n n
+    end
+
+    def puts_n(n)
       puts n
     end
 
