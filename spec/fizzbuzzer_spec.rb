@@ -72,22 +72,21 @@ describe Fizzbuzzer do
     end
   end
 
-
   describe "#puts_fizzbuzz" do
     it "FizzBuzz!を標準出力する" do
-      expect{ model.fizzbuzz! }.to output("FizzBuzz!\n").to_stdout
+      expect{ model.puts_fizzbuzz }.to output("FizzBuzz!\n").to_stdout
     end
   end
 
   describe "#puts_fizz" do
     it "Fizz!を標準出力する" do
-      expect{ model.fizz! }.to output("Fizz!\n").to_stdout
+      expect{ model.puts_fizz }.to output("Fizz!\n").to_stdout
     end
   end
 
   describe "#puts_buzz" do
     it "Buzz!を標準出力する" do
-      expect{ model.buzz! }.to output("Buzz!\n").to_stdout
+      expect{ model.puts_buzz }.to output("Buzz!\n").to_stdout
     end
   end
 
