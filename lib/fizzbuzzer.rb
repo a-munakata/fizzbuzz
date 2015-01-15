@@ -10,21 +10,23 @@ class Fizzbuzzer
     end
 
     def call_with(n)
-      return fizzbuzz! if n % 15 == 0
-      return fizz!     if n % 3 == 0
-      return buzz!     if n % 5 == 0
+      return puts_fizzbuzz if n % 15 == 0
+      return puts_fizz     if n % 3 == 0
+      return puts_buzz     if n % 5 == 0
+
       puts n
     end
 
-    def fizzbuzz!
+    def puts_fizzbuzz
       puts "FizzBuzz!"
     end
 
-    def fizz!
+
+    def puts_fizz
       puts "Fizz!"
     end
 
-    def buzz!
+    def puts_buzz
       puts "Buzz!"
     end
   end
