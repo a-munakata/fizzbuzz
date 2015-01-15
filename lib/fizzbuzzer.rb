@@ -3,10 +3,10 @@ class Fizzbuzzer
 
   class << self
     def result(range)
-      raise InvalidVariable unless range.is_a?(Range)
-      raise InvalidVariable unless range.all?{|i| i.is_a?(Integer) }
+      fail InvalidVariable unless range.is_a?(Range)
+      fail InvalidVariable unless range.all? { |i| i.is_a?(Integer) }
 
-      range.each{|n| call_with n }
+      range.each { |n| call_with n }
     end
 
     def call_with(n)
@@ -22,16 +22,15 @@ class Fizzbuzzer
     end
 
     def puts_fizzbuzz
-      puts "FizzBuzz!"
+      puts 'FizzBuzz!'
     end
 
-
     def puts_fizz
-      puts "Fizz!"
+      puts 'Fizz!'
     end
 
     def puts_buzz
-      puts "Buzz!"
+      puts 'Buzz!'
     end
   end
 end
